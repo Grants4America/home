@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accounts</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome CDN for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* Styles moved to styles.css for cleaner separation */
+      .contain {
+        max-width: 80%; /* Adjusted to be responsive */
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #6c757d;
+        margin-bottom: 20px;
+      }
+
+      .account-info {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .account-info p {
+        color: #29a6e6;
+        margin: 10px 0;
+        font-size: 100%;
+      }
+
+      .account-info p span {
+        float: right;
+      }
+
+      .buttons {
+        text-align: center;
+      }
+
+      .button {
+        font-size: 100%;
+        display: block; /* Ensures buttons are arranged vertically */
+        width: 50%; /* Makes buttons occupy 80% of the container's width */
+        margin: 10px auto; /* Centers the buttons horizontally and adds space between them */
+        padding: 10px 20px;
+        background-color: #29a6e6;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #1073a5;
+      }
+
+      p {
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      #account-name {
+        font-size: 100%;
+        color: #29a6e6;
+        margin-bottom: 20px;
+      }
+
+      .features-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .feature {
+        width: 30%; /* Adjust as necessary for your layout */
+        text-align: center;
+        color: #29a6e6;
+        cursor: pointer;
+      }
+
+      .features-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Adjusts space around items */
+        gap: 20px; /* Adjust gap between items */
+      }
+
+      .feature {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1 1 45%; /* Adjusts flex-basis for responsiveness */
+        max-width: 45%; /* Ensures two items per line */
+        box-sizing: border-box;
+        margin-bottom: 20px; /* Adjust bottom margin */
+      }
+
+      .icon {
+        width: 60px; /* Adjust icon size as needed */
+        height: 60px;
+        line-height: 60px;
+        background-color: #29a6e6; /* Example background color */
+        color: #6c757d; /* Example text color */
+        font-size: 24px; /* Adjust font size as needed */
+        font-weight: bold;
+        border-radius: 50%; /* Rounded shape for the icon */
+        margin: 0 auto 10px; /* Center and add bottom margin */
+        text-align: center; /* Center text within icon */
+      }
+
+      .feature .icon:hover {
+        background-color: #1073a5;
+      }
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .feature {
+          width: 45%; /* Two features per row on smaller screens */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .feature {
+          width: 100%; /* One feature per row on mobile devices */
+        }
+      }
+
+      /* Profile popup styles */
+      #profile-info {
+        display: none;
+        /* position: absolute; */
+        top: 80px;
+        left: 100%;
+        width: 50%;
+        padding: 20px;
+        background-color: #29a6e6;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      #profile-info p {
+        margin: 10px 0;
+        font-size: 1rem;
+        color: green;
+        font-size: 14px;
+      }
+
+      #profile-info p strong {
+        color: #6c757d;
+      }
+
+      #profile-info .close-btn {
+        display: block;
+        text-align: right;
+        font-size: 16px;
+        cursor: pointer;
+        color: #6c757d;
+      }
+
+      .profile-img {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        top: 20px;
+        left: 20px;
+      }
+
+      .verified {
+        color: green;
+        margin-left: 5px;
+      }
+
+      /* Responsive adjustments for profile info */
+      @media (max-width: 768px) {
+        #profile-info {
+          width: 70%;
+          left: 15%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #profile-info {
+          width: 90%;
+          left: 5%;
+        }
+      }
+      #number {
+        margin: 10px 0;
+        font-size: 1rem;
+        color: green;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <img src="images/bank_logo.png" alt="Pure Bank Logo" />
+        <div class="logo">
+          <h1>Pure Bank</h1>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li>
+              <a href="index.html">Home</a><span class="seperator"> |</span>
+            </li>
+            <li>
+              <a href="services.html">Services</a
+              ><span class="seperator"> |</span>
+            </li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="contain">
+        <h1>Accounts</h1>
+        <img
+          src="images/profile.jpg"
+          alt="Profile"
+          class="profile-img"
+          onclick="toggleProfile()"
+        />
+        <div id="profile-info">
+          <span class="close-btn" onclick="toggleProfile()">&uarr; Back</span>
+          <p><strong>Full Name:</strong> Ryan Williams</p>
+          <p id="number"><strong>Contact:</strong> +1 562-587-0197</p>
+          <p><strong>Nick Name:</strong> Ryan</p>
+          <p><strong>Gender:</strong> Male</p>
+          <p><strong>Date of Birth:</strong> **-**-07</p>
+          <p>
+            <strong>Email:</strong> ryanwilliams2109641@gmail.com
+            <i class="fa fa-check-circle verified"></i>
+          </p>
+          <p id="number"><strong>Account Number:</strong> 5678901234</p>
+        </div>
+        <p id="account-name">
+          <strong>Hi, Ryan</strong>
+        </p>
+        <div class="account-info">
+          <!-- <p>
+            <strong>Account ID:</strong>
+            <span class="account-id">5678901234</span>
+          </p> -->
+          <p>
+            <strong>Checking Account:</strong>
+            <span class="checking-balance">$ 2,000,000.00</span>
+            <span
+              class="toggle-visibility"
+              onclick="toggleVisibility('checking-balance', 'eye-icon1')"
+              ><i class="fa fa-eye" id="eye-icon1"></i
+            ></span>
+          </p>
+          <p>
+            <strong>Available Balance:</strong>
+            <span class="savings-balance">$ 40,000,000.00</span>
+            <span
+              class="toggle-visibility"
+              onclick="toggleVisibility('savings-balance', 'eye-icon2')"
+              ><i class="fa fa-eye" id="eye-icon2"></i
+            ></span>
+          </p>
+        </div>
+        <div class="buttons">
+          <a href="send_money.html" class="button">Send Money</a><br />
+          <a href="withdraw_money.html" class="button">Withdraw Money</a><br />
+          <a href="transaction_history.html" class="button"
+            >Transaction History</a
+          ><br />
+        </div>
+      </div>
+
+      <div class="features-container">
+        <div class="feature">
+          <div class="icon">A</div>
+          <p>Refer & Earn</p>
+        </div>
+        <div class="feature">
+          <div class="icon">DB</div>
+          <p>Bet & Win</p>
+        </div>
+        <div class="feature">
+          <div class="icon">TV</div>
+          <p>Subscriptions</p>
+        </div>
+        <div class="feature">
+          <div class="icon">S</div>
+          <p>Savings</p>
+        </div>
+        <div class="feature">
+          <div class="icon">L</div>
+          <p>Loan</p>
+        </div>
+        <div class="feature">
+          <div class="icon">JW</div>
+          <p>Join and Win Game Center</p>
+        </div>
+        <!-- Add more features as needed -->
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-links">
+          <ul>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="#help">Help & Support</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="contact-info">
+          <p>
+            Contact us at:
+            <a href="mailto:support@purebank.com">support@purebank.com</a>
+          </p>
+          <p>WhatsApp us: +1 212-555-0198</p>
+        </div>
+        <div class="social-media">
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">LinkedIn</a>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2024 Pure Bank. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function toggleVisibility(balanceClass, eyeIconId) {
+        const balanceElement = document.querySelector(`.${balanceClass}`);
+        const eyeIcon = document.getElementById(eyeIconId);
+
+        if (balanceElement.textContent === "******") {
+          balanceElement.textContent =
+            balanceElement.getAttribute("data-balance");
+          eyeIcon.classList.remove("fa-eye-slash");
+          eyeIcon.classList.add("fa-eye");
+        } else {
+          balanceElement.setAttribute(
+            "data-balance",
+            balanceElement.textContent
+          );
+          balanceElement.textContent = "******";
+          eyeIcon.classList.remove("fa-eye");
+          eyeIcon.classList.add("fa-eye-slash");
+        }
+      }
+
+      function toggleProfile() {
+        const profileInfo = document.getElementById("profile-info");
+        profileInfo.style.display =
+          profileInfo.style.display === "none" ? "block" : "none";
+      }
+    </script>
+  </body>
+</html>

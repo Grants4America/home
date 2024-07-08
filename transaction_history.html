@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaction History</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome CDN for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* Styles moved to styles.css for cleaner separation */
+      .contain {
+        max-width: 90%; /* Adjusted to be responsive */
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #6c757d;
+        margin-bottom: 20px;
+      }
+
+      .transaction-history {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .transaction-item {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+
+      .transaction-item:last-child {
+        border-bottom: none;
+      }
+
+      .transaction-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .transaction-amount {
+        font-weight: bold;
+        color: #29a6e6;
+      }
+
+      .transaction-actions {
+        float: right;
+      }
+
+      div {
+        color: #29a6e6;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <img src="images/bank_logo.png" alt="Pure Bank Logo" />
+        <div class="logo">
+          <h1>Pure Bank</h1>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li>
+              <a href="index.html">Home</a><span class="seperator"> |</span>
+            </li>
+            <li>
+              <a href="services.html">Services</a
+              ><span class="seperator"> |</span>
+            </li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="contain">
+        <h1>Transaction History</h1>
+        <div class="transaction-history">
+          <!-- Transaction Items -->
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> January 15, 2024</p>
+                <p>
+                  <strong>Description:</strong> Payment received from John Smith
+                </p>
+                <p><strong>Reference:</strong> TRX-1234567890</p>
+              </div>
+              <div class="transaction-amount">$ 1,500.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx1', 'eye-icon1')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <!-- Repeat for additional transactions -->
+          <!-- Example: -->
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> February 3, 2024</p>
+                <p>
+                  <strong>Description:</strong> Online purchase at XYZ Store
+                </p>
+                <p><strong>Reference:</strong> TRX-9876543210</p>
+              </div>
+              <div class="transaction-amount">$ 350.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx2', 'eye-icon2')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <!-- Additional Transactions (20 in total) -->
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> March 1, 2024</p>
+                <p><strong>Description:</strong> Deposit from Jane Smith</p>
+                <p><strong>Reference:</strong> TRX-2468013579</p>
+              </div>
+              <div class="transaction-amount">$ 2,000.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx3', 'eye-icon3')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> April 5, 2024</p>
+                <p><strong>Description:</strong> ATM Withdrawal</p>
+                <p><strong>Reference:</strong> TRX-7894561230</p>
+              </div>
+              <div class="transaction-amount">$ 100.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx4', 'eye-icon4')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> May 10, 2024</p>
+                <p>
+                  <strong>Description:</strong> Online bill payment to Utility
+                  Co.
+                </p>
+                <p><strong>Reference:</strong> TRX-1357924680</p>
+              </div>
+              <div class="transaction-amount">$ 150.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx5', 'eye-icon5')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> June 15, 2024</p>
+                <p><strong>Description:</strong> Transfer to Savings Account</p>
+                <p><strong>Reference:</strong> TRX-2468135790</p>
+              </div>
+              <div class="transaction-amount">$ 500.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx6', 'eye-icon6')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> July 20, 2024</p>
+                <p><strong>Description:</strong> Interest credited</p>
+                <p><strong>Reference:</strong> TRX-5678901230</p>
+              </div>
+              <div class="transaction-amount">$ 50.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx7', 'eye-icon7')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> August 1, 2024</p>
+                <p><strong>Description:</strong> Purchase at ABC Store</p>
+                <p><strong>Reference:</strong> TRX-9876543210</p>
+              </div>
+              <div class="transaction-amount">$ 75.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx8', 'eye-icon8')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> September 5, 2024</p>
+                <p>
+                  <strong>Description:</strong> Salary deposit from Acme Corp.
+                </p>
+                <p><strong>Reference:</strong> TRX-1357924680</p>
+              </div>
+              <div class="transaction-amount">$ 2,500.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx9', 'eye-icon9')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> October 10, 2024</p>
+                <p><strong>Description:</strong> Insurance premium payment</p>
+                <p><strong>Reference:</strong> TRX-3579246801</p>
+              </div>
+              <div class="transaction-amount">$ 200.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx10', 'eye-icon10')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> November 15, 2024</p>
+                <p><strong>Description:</strong> Withdrawal from ATM</p>
+                <p><strong>Reference:</strong> TRX-6890471235</p>
+              </div>
+              <div class="transaction-amount">$ 50.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx11', 'eye-icon11')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> December 1, 2024</p>
+                <p><strong>Description:</strong> Charity donation</p>
+                <p><strong>Reference:</strong> TRX-1357924680</p>
+              </div>
+              <div class="transaction-amount">$ 100.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx12', 'eye-icon12')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> January 2, 2025</p>
+                <p>
+                  <strong>Description:</strong> Online transfer to John Smith
+                </p>
+                <p><strong>Reference:</strong> TRX-2468135790</p>
+              </div>
+              <div class="transaction-amount">$ 300.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx13', 'eye-icon13')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> February 5, 2025</p>
+                <p><strong>Description:</strong> Mobile phone bill payment</p>
+                <p><strong>Reference:</strong> TRX-5678901230</p>
+              </div>
+              <div class="transaction-amount">$ 75.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx14', 'eye-icon14')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> March 10, 2025</p>
+                <p><strong>Description:</strong> Credit card payment</p>
+                <p><strong>Reference:</strong> TRX-1357924680</p>
+              </div>
+              <div class="transaction-amount">$ 500.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx15', 'eye-icon15')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> April 15, 2025</p>
+                <p><strong>Description:</strong> Investment deposit</p>
+                <p><strong>Reference:</strong> TRX-9876543210</p>
+              </div>
+              <div class="transaction-amount">$ 1,000.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx16', 'eye-icon16')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> May 1, 2025</p>
+                <p><strong>Description:</strong> Loan repayment</p>
+                <p><strong>Reference:</strong> TRX-2468013579</p>
+              </div>
+              <div class="transaction-amount">$ 1,200.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx17', 'eye-icon17')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> June 5, 2025</p>
+                <p><strong>Description:</strong> Refund from XYZ Store</p>
+                <p><strong>Reference:</strong> TRX-7894561230</p>
+              </div>
+              <div class="transaction-amount">$ 80.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx18', 'eye-icon18')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> July 10, 2025</p>
+                <p><strong>Description:</strong> Dividend received</p>
+                <p><strong>Reference:</strong> TRX-1357924680</p>
+              </div>
+              <div class="transaction-amount">$ 300.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx19', 'eye-icon19')"
+                ></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="transaction-item">
+            <div class="transaction-details">
+              <div>
+                <p><strong>Date:</strong> August 15, 2025</p>
+                <p><strong>Description:</strong> Stock purchase</p>
+                <p><strong>Reference:</strong> TRX-3579246801</p>
+              </div>
+              <div class="transaction-amount">$ 500.00</div>
+            </div>
+            <div class="transaction-actions">
+              <span class="toggle-visibility"
+                ><i
+                  class="fa fa-eye"
+                  onclick="toggleVisibility('trx20', 'eye-icon20')"
+                ></i
+              ></span>
+            </div>
+          </div>
+          <a href="#">more</a>
+        </div>
+        <a href="account.html" class="button"> Back</a>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-links">
+          <ul>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="#help">Help & Support</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="contact-info">
+          <p>
+            Contact us at:
+            <a href="mailto:support@purebank.com">support@purebank.com</a>
+          </p>
+          <p>WhatsApp us: +1 212-555-0198</p>
+        </div>
+        <div class="social-media">
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">LinkedIn</a>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2024 Pure Bank. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function toggleVisibility(trxClass, eyeIconId) {
+        const trxElement = document.querySelector(`.${trxClass}`);
+        const eyeIcon = document.getElementById(eyeIconId);
+
+        if (trxElement.style.display === "none") {
+          trxElement.style.display = "block";
+          eyeIcon.classList.remove("fa-eye-slash");
+          eyeIcon.classList.add("fa-eye");
+        } else {
+          trxElement.style.display = "none";
+          eyeIcon.classList.remove("fa-eye");
+          eyeIcon.classList.add("fa-eye-slash");
+        }
+      }
+    </script>
+  </body>
+</html>

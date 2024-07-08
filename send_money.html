@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send Money</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <img src="images/bank_logo.png" alt="Pure Bank Logo" />
+        <div class="logo">
+          <h1>Pure Bank</h1>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li>
+              <a href="index.html">Home</a><span class="seperator"> |</span>
+            </li>
+            <li>
+              <a href="services.html">Services</a
+              ><span class="seperator"> |</span>
+            </li>
+            <li>
+              <a href="about.html">About Us</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <style>
+        .dropdown-container {
+          width: 80%;
+          margin: 20px auto;
+          text-align: center;
+        }
+        .dropdown {
+          width: 100%;
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          color: #6c757d;
+          font-size: 1em;
+        }
+      </style>
+      <div class="container">
+        <h1>Send Money</h1>
+        <form action="#" method="POST">
+          <div class="dropdown-container">
+            <label for="banks">Select a Bank:</label>
+            <select id="banks" class="dropdown">
+              <option value="bank_of_america">Bank of America</option>
+              <option value="wells_fargo">Wells Fargo</option>
+              <option value="chase_bank">Chase Bank</option>
+              <option value="citibank">Citibank</option>
+              <option value="us_bank">U.S. Bank</option>
+              <option value="goldman_sachs">Goldman Sachs</option>
+              <option value="pnc_bank">PNC Bank</option>
+              <option value="td_bank">TD Bank</option>
+              <option value="capital_one">Capital One</option>
+              <option value="bb_t">BB&T (Truist)</option>
+              <option value="suntrust">SunTrust (Truist)</option>
+              <option value="ally_bank">Ally Bank</option>
+              <option value="synchrony_bank">Synchrony Bank</option>
+              <option value="american_express_bank">
+                American Express Bank
+              </option>
+              <option value="discover_bank">Discover Bank</option>
+            </select>
+          </div>
+
+          <label for="recipient_id">Recipient Account ID:</label>
+          <input type="number" id="recipient_id" name="recipient_id" required />
+          <label for="amount">Amount to Send:</label>
+          <input type="number" id="amount" name="amount" required /><br /><br />
+          <button type="submit">Send</button><br /><br />
+        </form>
+        <a href="account.html" class="button">Back to Account</a>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-links">
+          <ul>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="#help">Help & Support</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="contact-info">
+          <p>
+            Contact us at:
+            <a href="mailto:support@purebank.com">support@purebank.com</a>
+          </p>
+          <p>WhatsApp us: +1 212-555-0198</p>
+        </div>
+        <div class="social-media">
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">LinkedIn</a>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2024 Pure Bank. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
