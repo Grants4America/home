@@ -45,15 +45,19 @@
       }
 
       .transaction-details {
-        display: flex;
+        display: flex; /* Use flexbox for better control */
         justify-content: space-between;
         align-items: center;
         color: #29a6e6;
+        font-size: small;
       }
 
       .transaction-amount {
+        display: block; /* Ensure it's a block-level element */
+        text-align: right; /* Align text to the right */
         font-weight: bold;
         color: #29a6e6;
+        flex-shrink: 0; /* Prevent shrinking */
       }
 
       .transaction-actions {
@@ -492,7 +496,7 @@
             });
           </script>
         </div>
-        <a href="#">Back &Uarrocir;</a>
+        <a href="#">more &Uarrocir;</a>
       </div>
       <a href="account.html" class="button">Back to Account</a>
     </main>
