@@ -418,3 +418,7 @@ h1 {
 .button:hover {
   background-color: #1073a5;
 }
+
+.logout {
+  float: right;
+}
